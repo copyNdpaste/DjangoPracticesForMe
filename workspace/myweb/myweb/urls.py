@@ -19,9 +19,12 @@ from myweb import views
 
 urlpatterns = [
     path('', views.index),
+    path('admin/', admin.site.urls),
     path('blog/', views.blog),
+    path('blog/write/', views.write),
     path('html/', views.html),
+    path('html/html2/', views.html2),
     path('css/', views.css),
     path('js/', views.js),
-    path('admin/', admin.site.urls),
+
 ]

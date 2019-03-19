@@ -10,13 +10,18 @@ def index(request) :
 def blog(request) :
     return render(request, 'blog.html')
 
+def write(request) :
+    return render(request, 'write.html')
+
 def html(request) :
     return render(request, 'html.html')
+
+def html2(request) :
+    return render(request, 'html2.html')
 
 def css(request) :
     return render(request, 'css.html')
 
 def js(request) :
     return render(request, 'js.html')
-
 
