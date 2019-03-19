@@ -8,15 +8,15 @@ def index(request) :
     return render(request, 'index.html')
 
 def blog(request) :
-    return HttpResponse('Blog')
+    return render(request, 'blog.html')
 
 def html(request) :
-    return HttpResponse('HTML Page')
+    return render(request, 'html.html')
 
 def css(request) :
-    return HttpResponse('CSS Page')
+    return render(request, 'css.html')
 
 def js(request) :
-    return HttpResponse('JavaScript Page')
+    return render(request, 'js.html')
 
 
