@@ -1,9 +1,11 @@
 from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
 def index(request) :
-    html = ''
-    html += '<h1>main page</h1>'
-    return HttpResponse(html)
+    '''
+    settings.py의 INSTALLED_APPS에서 myweb 폴더 추가. templates에 있는 html 문서를 render()로 출력
+    '''
+    return render(request, 'index.html')
 
 def blog(request) :
     return HttpResponse('Blog')
