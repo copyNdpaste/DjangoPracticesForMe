@@ -20,7 +20,6 @@ from myweb import views
 urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
-    path('blog/', views.blog),
-    path('blog/write/', views.write),
+    path('blog/', include("blog.urls")),
     path('html/', include("htmlapp.urls")),
 ]
