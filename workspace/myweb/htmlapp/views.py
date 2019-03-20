@@ -15,4 +15,9 @@ def tagExample(request, tag_num) :
         2: {'tag': 'b', 'example': '<b>볼드</b>'},
         3: {'tag': 'li', 'example': '<li>목록</li>'},
     }
-    return render(request, 'htmlapp/view.html', data.get(tag_num)) #사전에서 get함수의 인자로 key를 넘겨주면 value 값을 추출할 수 있음
+
+    context = {
+        'tags': '1', 'content': '2', 'data_list': [1,2,3]
+    }
+
+    return render(request, 'htmlapp/view.html', context) #사전에서 get함수의 인자로 key를 넘겨주면 value 값을 추출할 수 있음

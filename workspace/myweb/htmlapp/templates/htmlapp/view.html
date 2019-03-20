@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ tag }}</title>
+    <title>{{ tags }}</title>
 </head>
 <body>
-    {{ example }}
+    {{ content }}
+    <div>
+        {% for data in data_list %}
+            {{ data }}<br>
+        {% endfor %}
+
+    {% if data_list.0 == '목록1' %}
+        <div>목록1 존재</div><br>
+    {% elif data_list.1 == '목록2' %}
+        <div>목록2 존재</div><br>
+    {% else %}
+        <div>목록 x</div><br>
+    {% endif %}
+        {{ data_list.0 }}<br>
+        {{ data_list.1 }}<br>
+    </div>
 </body>
 </html>
