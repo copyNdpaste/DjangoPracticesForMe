@@ -5,4 +5,6 @@ urlpatterns = [
     path('', views.html),
     path('html2/', views.html2),
     path('tag/<int:tag_num>/', views.tagExample), #tagExample()의 인자로 tag_num이 쓰임
+    path('title/', views.tagTitle),
+    path('title/<str:title>', views.tagTitle),
 ]
