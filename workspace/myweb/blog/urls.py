@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.blog),
     path('write/', views.write),
     path('title/', views.title),
+    path('form/', views.inputForm),
 ]

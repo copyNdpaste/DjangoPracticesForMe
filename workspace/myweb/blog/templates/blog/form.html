@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+    <form action="/blog/form/" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="txt">
+        </div>
+        <div>
+            <input type="password" name="pass">
+        </div>
+        <div>
+            <input type="number" name="num" min="10" max="100" step="5">
+        </div>
+        <div>
+            <input type="checkbox" name="chk1" value="1">
+            <input type="checkbox" name="chk1" value="2">
+        </div>
+        <div>
+            <input type="radio" name="rdo1" value="1">
+            <input type="radio" name="rdo1" value="2">
+        </div>
+        <div>
+            <select name="sel">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+        <div>
+            <textarea name="txt_area" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <button type="button" onclick="alert(0)">button</button>
+            <button type="submit">submit</button>
+        </div>
+    </form>
+</body>
+</html>

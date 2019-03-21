@@ -25,3 +25,9 @@ def title(request): #하나의 함수에서 GET, POST 요청 분기
         'version' : ver
     }
     return render(request, 'blog/title.html', context)
+
+def inputForm(request):
+    if request.method == 'GET':
+        return render(request, 'blog/form.html')
+    elif request.method == 'POST':
+        return render(request, 'blog/form.html')
