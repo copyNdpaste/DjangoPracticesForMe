@@ -1,1 +1,30 @@
-<h1>blog index.html</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/blog/title/?name=title&ver=3">intro</a></li>
+            <li><a href="/blog/title/?name=syntax">syntax</a></li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <form action="/blog/title/" method="GET">
+            <input type="text" name="name">
+            <input type="text" name="ver">
+            <button type="submit">전송</button>
+        </form>
+
+        <form action="/blog/title/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name">
+            <input type="text" name="ver">
+            <button type="submit">전송</button>
+        </form>
+    </div>
+</body>
+</html>
