@@ -8,34 +8,30 @@
     <form action="/blog/form/" method="POST">
         {% csrf_token %}
         <div>
-            <input type="text" name="txt">
+            <input type="text" name="title">
         </div>
         <div>
-            <input type="password" name="pass">
-        </div>
-        <div>
-            <input type="number" name="num" min="10" max="100" step="5">
-        </div>
-        <div>
-            <input type="checkbox" name="chk1" value="1">
-            <input type="checkbox" name="chk1" value="2">
-        </div>
-        <div>
-            <input type="radio" name="rdo1" value="1">
-            <input type="radio" name="rdo1" value="2">
-        </div>
-        <div>
-            <select name="sel">
-                <option value="1">1</option>
-                <option value="2">2</option>
+            <select name="type">
+                <option value="attr">blog attr</option>
+                <option value="size">blog size</option>
+                <option value="border">blog border</option>
             </select>
         </div>
         <div>
-            <textarea name="txt_area" cols="30" rows="10"></textarea>
+            <textarea name="note" cols="80" rows="10"></textarea>
         </div>
         <div>
-            <button type="button" onclick="alert(0)">button</button>
-            <button type="submit">submit</button>
+            성별 :
+            <input type="radio" name="gender" value="m">남자
+            <input type="radio" name="gender" value="w">여자 
+        </div>
+        <div>
+            활용목적 :
+            <input type="checkbox" name="purpose" value="a">학습
+            <input type="checkbox" name="purpose" value="a">직무
+        </div>
+        <div>
+            <button type="submit">submit</submit>
         </div>
     </form>
 </body>

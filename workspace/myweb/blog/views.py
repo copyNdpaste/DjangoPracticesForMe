@@ -30,4 +30,20 @@ def inputForm(request):
     if request.method == 'GET':
         return render(request, 'blog/form.html')
     elif request.method == 'POST':
-        return render(request, 'blog/form.html')
+        title = request.POST.get('title')
+        _type = request.POST.get('type')
+        note = request.POST.get('note')
+        gender = request.POST.get('gender')
+        #purpose = request.POST.get('purpose')
+        purpose = request.POST.getlist('purpose')
+        
+        from django.shortcuts import HttpResponse
+        return HttpResponse(f'{title} / {_type} / {note} / {gender} / {purpose}')
+    '''context = {
+        'title' : title,
+        '_type' : _type,
+        'note' : note,
+        'gender' : gender,
+        'purpose' : purpose,
+    }
+    return render(request, 'blog/form.html', context)'''
