@@ -3,6 +3,5 @@ from myacc import views
 
 urlpatterns = [
     path('', views.index),
-    #path('printing/', views.printing),
-    path('<str:acc_type>/', views.index),
+#    path('<str:acc_type>/', views.index),
 ]

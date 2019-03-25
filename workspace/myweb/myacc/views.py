@@ -3,8 +3,9 @@ from myacc.models import AccountBook
 from django.shortcuts import HttpResponse
 
 # Create your views here.
-def index(request, acc_type=None):
+def index(request):
     datas = AccountBook.objects.all()
+    acc_type = request.GET.get('type')
     if acc_type == 'in':
         datas = datas.filter(inc__gt=0)
     else:
