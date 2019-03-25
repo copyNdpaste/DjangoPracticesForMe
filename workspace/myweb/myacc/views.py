@@ -6,12 +6,26 @@ from django.shortcuts import HttpResponse
 def index(request):
     datas = AccountBook.objects.all()
     acc_type = request.GET.get('type')
+    amount = request.GET.get('amount', 0)
+
     if acc_type == 'in':
-        datas = datas.filter(inc__gt=0)
-    else:
-        datas = datas.filter(outc__gt=0)
+        datas = datas.filter(inc__gte=amount if amount else 0)
+    elif acc_type == 'out':
+        datas = datas.filter(outc__gte=amount if amount else 0)
+    '''if acc_type == 'in':
+        if amount:
+            datas = datas.filter(inc__gte=amount)
+        else:
+            datas = datas.filter(inc__gte=0)
+    elif acc_type == 'out':
+        if amount:
+            datas = datas.filter(outc__gte=amount)
+        else:
+            datas = datas.filter(outc__gte=0)'''
     context = {
-        'datas': datas
+        'datas': datas,
+        'amount': amount,
+        'type': acc_type,
     }
     return render(request, 'myacc/index.html', context)
 '''
