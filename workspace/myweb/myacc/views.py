@@ -28,6 +28,15 @@ def index(request):
         'type': acc_type,
     }
     return render(request, 'myacc/index.html', context)
+
+def insert(request):
+    if request.method == 'GET':
+        # 양식 페이지 전달
+        return render(request, 'myacc/insert.html')
+    elif request.method == 'POST':
+        # 사용자 입력 정보 DB에 저장
+        pass
+    return render(request,)
 '''
 def accTypeSearch(request, acc_type):
     if acc_type == 'in':

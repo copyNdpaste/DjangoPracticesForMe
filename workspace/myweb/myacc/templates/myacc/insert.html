@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Insert</title>
+</head>
+<body>
+    <form action="/myacc/insert/" method="POST"> {% csrf_token %}
+        <div>
+            품목 <input type="text" name="item" placeholder="월급">
+            수입 <input type="number" name="inc" placeholder="5000000">
+            지출 <input type="number" name="outc">
+            개수 <input type="number" name="count" placeholder="1">
+            날짜 <input type="date" name="date" value="{% now 'Y-m-d' %}">
+        </div>
+        <div><button type="submit">저장</button></div>
+    </form>
+</body>
+</html>
