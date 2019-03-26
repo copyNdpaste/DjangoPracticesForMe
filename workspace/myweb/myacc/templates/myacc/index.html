@@ -36,7 +36,7 @@
         </tr>
         {% for row in datas %}
             <tr>
-                <td>{{ row.id }}</td>
+                <td><a href="/myacc/view/?id={{ row.id }}">{{ row.item }}</a></td>
                 <td>{{ row.item }}</td>
                 <td style="color:red">{{ row.inc }}</td>
                 <td>{{ row.outc }}</td>

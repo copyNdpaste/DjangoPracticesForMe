@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ data.item }} 수정</title>
+</head>
+<body>
+    <form action="/myacc/update/" method="POST"> {% csrf_token %}
+        <div>
+            <input type="hidden" name="id" value="{{ data.id }}">
+            품목 <input type="text" name="item" value="{{ data.item }}" placeholder="월급">
+            수입 <input type="number" name="inc" value="{{ data.inc }}" placeholder="5000000">
+            지출 <input type="number" name="outc" value="{{ data.outc }}">
+            개수 <input type="number" name="count" placeholder="1" value="{{ data.count }}">
+            날짜 <input type="date" name="date" value="{{ data.date | date:'Y-m-d' }}">
+        </div>
+        <div><button type="submit">저장</button></div>
+    </form>
+    {{ success }}
+</body>
+</html>

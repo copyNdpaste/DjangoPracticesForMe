@@ -48,6 +48,45 @@ def insert(request):
             'success': '저장 완료',
         }
     #return render(request, 'myacc/insert.html', context)
+
+def view(request):
+    data = AccountBook.objects.get(id=request.GET.get('id'))
+    context = {
+        'data': data
+    }
+    return render(request, 'myacc/view.html', context)
+
+def update(request):
+    if request.method == 'GET':
+        data = AccountBook.objects.get(id=request.GET.get('id'))
+        context = {
+            'data': data
+        }
+        return render(request, 'myacc/update.html', context)
+    elif request.method == 'POST':
+        record = AccountBook.objects.get(id=request.POST.get('id'))
+        record.item = request.POST.get('item')
+        record.inc = request.POST.get('inc')
+        record.outc = request.POST.get('outc')
+        record.count = request.POST.get('count')
+        record.date = request.POST.get('date')
+        record.save()
+
+        return redirect(f'/myacc/view/?id={record.id}')
+
+def delete(request):
+    if request.method == 'GET':
+        data = AccountBook.objects.get(id=request.GET.get('id'))
+        context = {
+            'data': data
+        }
+        return render(request, 'myacc/delete.html', context)
+
+    elif request.method == 'POST':
+        record = AccountBook.objects.get(id=request.POST.get('id'))
+        record.delete()
+
+        return redirect('/myacc/')
 '''
 def accTypeSearch(request, acc_type):
     if acc_type == 'in':
