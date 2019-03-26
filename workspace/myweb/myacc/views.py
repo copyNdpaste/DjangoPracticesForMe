@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
 from myacc.models import AccountBook
-from django.shortcuts import HttpResponse
 
 # Create your views here.
 def index(request):
@@ -35,8 +34,20 @@ def insert(request):
         return render(request, 'myacc/insert.html')
     elif request.method == 'POST':
         # 사용자 입력 정보 DB에 저장
-        pass
-    return render(request,)
+        record = AccountBook()
+        record.item = request.POST.get('item')
+        record.inc = request.POST.get('inc')
+        record.outc = request.POST.get('outc')
+        record.count = request.POST.get('count')
+        record.date = request.POST.get('date')
+        record.save()
+
+        return redirect('/myacc/')
+
+        context = {
+            'success': '저장 완료',
+        }
+    #return render(request, 'myacc/insert.html', context)
 '''
 def accTypeSearch(request, acc_type):
     if acc_type == 'in':
